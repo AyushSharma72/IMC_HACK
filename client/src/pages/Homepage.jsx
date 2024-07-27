@@ -3,18 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { NavLink } from "react-router-dom";
+import imclogo from "../assets/imclogo.png";
+
 const Homepage = () => {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-  
-        <main>
         <section className="bg-gray-100 py-20">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl font-bold text-blue-900 mb-4">Welcome to IMC</h1>
-            <p className="text-lg text-gray-700 mb-8">Serving the community with dedication and integrity.</p>
+            <img src={imclogo} className="mx-auto mb-8 w-40 h-40 rounded-full" alt="IMC Logo" alt="IMC Logo" />
+            <h1 className="text-4xl font-bold text-blue-900 mb-2">Welcome to Indore Municipal Corporation</h1>
+            <h2 className="text-2xl font-bold text-blue-900 mb-4">इंदौर नगर निगम आपका स्वागत करता है</h2>
+            <p className="text-lg text-gray-700 mb-8">Serving the people with dedication and integrity.</p>
             <NavLink to="/about" className="bg-blue-900 text-white py-2 px-4 rounded hover:bg-blue-700">Learn More</NavLink>
           </div>
         </section>
@@ -35,7 +37,6 @@ const Homepage = () => {
             </div>
           </div>
         </section>
-      </main>
       </main>
       <Footer />
     </div>

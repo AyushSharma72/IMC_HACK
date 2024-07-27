@@ -24,7 +24,7 @@ const calculateStatus = (expiryDate, quantity) => {
   oneMonthFromNow.setMonth(now.getMonth() + 1);
 
   if (quantity <= 0) {
-    return "Unavailable";
+    return "Out of Stock";
   }
 
   if (expDate < now) {
@@ -46,7 +46,7 @@ const getStatusColor = (status) => {
       return "red";
     case "Expired":
       return "red";
-    case "Unavailable":
+    case "Out of Stock":
       return "purple";
     default:
       return "black";
@@ -101,7 +101,7 @@ const Itemshow = () => {
       <div className="container mx-auto p-6">
         <ToastContainer />
         <Typography variant="h4" component="h1" gutterBottom>
-          {departmentName} - Materials List
+          {departmentName} Department 
         </Typography>
         <Button
           variant="contained"
