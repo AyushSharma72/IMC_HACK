@@ -17,6 +17,7 @@ const MaterialSchema = new mongoose.Schema(
     Department: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Departments",
+      default: "66a44032293bac236289f5d6", 
     },
     UnitPrice: {
       type: Number,

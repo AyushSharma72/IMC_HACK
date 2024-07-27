@@ -21,7 +21,9 @@ const Login = () => {
   useEffect(() => {
     async function fetchDepartments() {
       try {
-        const response = await fetch("http://localhost:8000/api/v1/auth/getalldepartments");
+        const response = await fetch(
+          "http://localhost:8000/api/v1/auth/getalldepartments"
+        );
         const data = await response.json();
         if (response.ok) {
           setDepartments(data.departments);
@@ -57,7 +59,6 @@ const Login = () => {
         }),
       });
       const data = await response.json();
-      console.log(data.Department);
       if (response.status === 404) {
         setLoading(false);
         toast.error(data.message);
@@ -97,13 +98,16 @@ const Login = () => {
 
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8000/api/v1/supplier/SupplierLogin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password: Password }),
-      });
+      const response = await fetch(
+        "http://localhost:8000/api/v1/supplier/SupplierLogin",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password: Password }),
+        }
+      );
       const data = await response.json();
 
       if (!response.ok) {
@@ -164,7 +168,9 @@ const Login = () => {
           {showDepartmentLogin && (
             <form onSubmit={handleDepartmentSubmit}>
               <div className="mb-4">
-                <label className="block text-gray-700">Select Department Name</label>
+                <label className="block text-gray-700">
+                  Select Department Name
+                </label>
                 <select
                   value={DepartmentName}
                   onChange={(e) => setDepartmentName(e.target.value)}
