@@ -68,7 +68,7 @@ const Itemshow = () => {
     async function fetchMaterials() {
       try {
         const response = await fetch(
-          "http://localhost:8000/api/v1/materials/GetMaterials"
+          `http://localhost:8000/api/v1/materials/GetMaterials/${auth?.Department?._id}`
         );
         const data = await response.json();
         if (data.success === "true") {

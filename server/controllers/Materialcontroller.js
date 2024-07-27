@@ -2,10 +2,10 @@ const MaterialModel = require("../modals/materialModel");
 
 async function GetAllMaterials(req, resp) {
   try {
-    const materials = await MaterialModel.find({}).populate(
-      "Department",
-      "DepartmentName"
-    );
+    const dep = req.params.id;
+    const materials = await MaterialModel.find({
+      Department: dep,
+    }).populate("Department", "DepartmentName");
 
     if (materials) {
       return resp.send({

@@ -16,7 +16,7 @@ const router = express.Router();
 router.post("/AddMaterials", AddNewMaterials);
 
 router.post("/AddMaterials/:createdBy", AddNewMaterials);
-router.get("/GetMaterials", GetAllMaterials);
+router.get("/GetMaterials/:id", GetAllMaterials);
 
 router.post("/upload", upload.single("File"), uploadMaterial);
 

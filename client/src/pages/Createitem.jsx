@@ -29,13 +29,16 @@ const Createitem = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:8000/api/v1/materials/addmaterials/${auth?.supplier?._id}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
+      const response = await fetch(
+        `http://localhost:8000/api/v1/materials/addmaterials/${auth?.supplier?._id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
       const data = await response.json();
 
       if (response.ok) {
@@ -50,7 +53,7 @@ const Createitem = () => {
           lifetime: "",
         });
       } else {
-        toast.error( "Name Should Be Unique");
+        toast.error("Name Should Be Unique");
       }
     } catch (error) {
       console.error(error);
@@ -62,13 +65,24 @@ const Createitem = () => {
 
   return (
     <div>
-        {console.log(auth.supplier._id)}
       <Header2 />
       <div className="flex flex-col items-center min-h-screen bg-gray-100">
         <ToastContainer />
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-md mt-6">
-          <h1 className="text-2xl font-bold mb-4 text-center">Create New Material</h1>
-          {["MaterialName", "Description", "quantity", "UnitPrice", "Seller", "lifetime"].map((field) => (
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-6 rounded shadow-md w-full max-w-md mt-6"
+        >
+          <h1 className="text-2xl font-bold mb-4 text-center">
+            Create New Material
+          </h1>
+          {[
+            "MaterialName",
+            "Description",
+            "quantity",
+            "UnitPrice",
+            "Seller",
+            "lifetime",
+          ].map((field) => (
             <div key={field} className="mb-4">
               <label className="block text-gray-700 capitalize">{field}</label>
               <input
@@ -79,18 +93,18 @@ const Createitem = () => {
                 className="w-full px-4 py-2 border rounded mt-1"
                 required
               />
-            </div>  
-           
+            </div>
           ))}
           <button
             type="submit"
-            className={`w-full bg-blue-500 text-white py-2 rounded ${loading ? "opacity-50" : ""}`}
+            className={`w-full bg-blue-500 text-white py-2 rounded ${
+              loading ? "opacity-50" : ""
+            }`}
             disabled={loading}
           >
             {loading ? "Adding..." : "Add Material"}
           </button>
         </form>
-        {console.log(form.lifetime)}
 
         <div className="bg-white p-6 rounded shadow-md w-full max-w-4xl mt-6">
           <h2 className="text-2xl font-bold mb-4 text-center">Materials</h2>
@@ -98,23 +112,47 @@ const Createitem = () => {
             <table className="min-w-full bg-white table-auto">
               <thead>
                 <tr>
-                  <th className="py-2 px-4 border-b border-gray-200 text-center">Name</th>
-                  <th className="py-2 px-4 border-b border-gray-200 text-center">Description</th>
-                  <th className="py-2 px-4 border-b border-gray-200 text-center">Quantity</th>
-                  <th className="py-2 px-4 border-b border-gray-200 text-center">Unit Price</th>
-                  <th className="py-2 px-4 border-b border-gray-200 text-center">Seller</th>
-                  <th className="py-2 px-4 border-b border-gray-200 text-center">Lifetime</th>
+                  <th className="py-2 px-4 border-b border-gray-200 text-center">
+                    Name
+                  </th>
+                  <th className="py-2 px-4 border-b border-gray-200 text-center">
+                    Description
+                  </th>
+                  <th className="py-2 px-4 border-b border-gray-200 text-center">
+                    Quantity
+                  </th>
+                  <th className="py-2 px-4 border-b border-gray-200 text-center">
+                    Unit Price
+                  </th>
+                  <th className="py-2 px-4 border-b border-gray-200 text-center">
+                    Seller
+                  </th>
+                  <th className="py-2 px-4 border-b border-gray-200 text-center">
+                    Lifetime
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {materials.map((material, index) => (
                   <tr key={index}>
-                    <td className="py-2 px-4 border-b border-gray-200 text-center">{material.MaterialName}</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-center">{material.Description}</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-center">{material.quantity}</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-center">{material.UnitPrice}</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-center">{material.Seller}</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-center">{material.lifetime}</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-center">
+                      {material.MaterialName}
+                    </td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-center">
+                      {material.Description}
+                    </td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-center">
+                      {material.quantity}
+                    </td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-center">
+                      {material.UnitPrice}
+                    </td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-center">
+                      {material.Seller}
+                    </td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-center">
+                      {material.lifetime}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -129,4 +167,3 @@ const Createitem = () => {
 };
 
 export default Createitem;
-
