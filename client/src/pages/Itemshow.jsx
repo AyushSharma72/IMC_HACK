@@ -10,6 +10,7 @@ import {
   CircularProgress,
   Typography,
   Button,
+  Box,
 } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -100,34 +101,40 @@ const Itemshow = () => {
       <Header />
       <div className="container mx-auto p-6">
         <ToastContainer />
-        <Typography variant="h4" component="h1" gutterBottom>
-          {departmentName} Department 
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          align="center"
+          style={{ marginBottom: "0.5rem", fontWeight: "bold" }}
+        >
+          {departmentName} Department
         </Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => {
-            navigate("/allitems");
-          }}
-          style={{ marginRight: "1rem" }}
-        >
-          Allitems
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => navigate("/waste")}
-          style={{ marginRight: "1rem" }}
-        >
-          Show Expired Items
-        </Button>
-        <Button
-          variant="contained"
-          color="warning"
-          onClick={() => navigate("/outofstock")}
-        >
-          Show Out of Stock Items
-        </Button>
+        <Box display="flex" justifyContent="center" marginBottom="1rem">
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => navigate("/allitems")}
+            style={{ marginRight: "1rem" }}
+          >
+            All Items
+          </Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => navigate("/waste")}
+            style={{ marginRight: "1rem" }}
+          >
+            Show Expired Items
+          </Button>
+          <Button
+            variant="contained"
+            color="warning"
+            onClick={() => navigate("/outofstock")}
+          >
+            Show Out of Stock Items
+          </Button>
+        </Box>
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
