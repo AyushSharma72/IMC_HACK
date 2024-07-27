@@ -27,7 +27,7 @@ const listSuppliers = async (req, res) => {
 
 const listSuppliersitems = async (req, res) => {
   try {
-    const suppliers = await materials.find({Seller:req.params.name});
+    const suppliers = await materials.find({createdBy:req.params.id});
     res.status(200).send(suppliers);
   } catch (error) {
     res.status(500).send({ error: error.message });

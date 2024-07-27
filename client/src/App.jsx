@@ -11,7 +11,7 @@ import Allitem from "./pages/Allitem";
 import Requestpage from "./pages/Requestpage";
 import Createitem from "./pages/Createitem";
 import ShowSuppliers from "./pages/Showsuppliers";
-
+import Showitemsupp from "./pages/Showitemsupp";
 function App() {
   return (
     <>
@@ -27,6 +27,7 @@ function App() {
           <Route path="/request" element={<Requestpage />} />
           <Route path="/createitem" element={<Createitem />} />
           <Route path="/showsuppliers" element={<ShowSuppliers />} />
+          <Route path="/showitems" element={<Showitemsupp />} />
         </Routes>
       </AuthProvider>
     </>

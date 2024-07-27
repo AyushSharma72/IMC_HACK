@@ -10,6 +10,6 @@ const router = express.Router();
 router.post("/addsupplier", createSupplier);
 router.get("/listSupplier", listSuppliers);
 router.post("/SupplierLogin", supplierLoginController);
-router.get("/suppshowitems/:name", listSuppliersitems);
+router.get("/suppshowitems/:id", listSuppliersitems);
 
 module.exports = router;

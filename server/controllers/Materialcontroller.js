@@ -24,7 +24,30 @@ async function GetAllMaterials(req, resp) {
     });
   }
 }
+async function GetAllMaterials2(req, resp) {
+  try {
+    const materials = await MaterialModel.find({}).populate(
+      "Department",
+      "DepartmentName"
+    );
 
+    if (materials) {
+      return resp.send({
+        success: "true",
+        materials,
+      });
+    } else {
+      return resp.send({
+        success: "false",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    resp.send({
+      messaage: "Error in api",
+    });
+  }
+}
 async function AddNewMaterials(req, resp) {
   try {
     const {
@@ -101,5 +124,6 @@ async function SearchMaterialDepartmentWise(req, resp) {
 module.exports = {
   GetAllMaterials,
   AddNewMaterials,
+  GetAllMaterials2,
   SearchMaterialDepartmentWise,
 };
