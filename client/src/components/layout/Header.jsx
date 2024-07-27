@@ -36,6 +36,7 @@ function Header() {
         <NavLink to="/" className="text-xl font-bold text-gray-700">
           MyApp
         </NavLink>
+
         <nav className="flex items-center space-x-4">
           {auth?.Department?.DepartmentName ? (
             <>
@@ -64,6 +65,9 @@ function Header() {
             </>
           ) : (
             <>
+              <NavLink to="/" className="text-gray-700">
+                Home
+              </NavLink>
               <NavLink to="/login" className="text-gray-700">
                 Login
               </NavLink>
