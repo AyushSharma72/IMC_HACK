@@ -49,13 +49,16 @@ function Header() {
               <NavLink to="/showsuppliers" className="text-gray-700">
                 Suppliers
               </NavLink>
-
+              <NavLink to="/outgoingrequests" className="text-gray-700">
+                My_Requests
+              </NavLink>
               <NavLink to="/outofstock" className="text-gray-700"></NavLink>
               <Badge count={1}>
                 <NavLink to="/request" className="text-gray-700">
                   <FaCodePullRequest size={24} />
                 </NavLink>
               </Badge>
+
               <button
                 onClick={handleLogout}
                 className="text-gray-700 hover:text-red-500"

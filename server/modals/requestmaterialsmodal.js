@@ -23,6 +23,9 @@ const RequestSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Request", RequestSchema);
