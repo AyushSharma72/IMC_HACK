@@ -44,7 +44,7 @@ const getStatusColor = (status) => {
     case "Available":
       return "green";
     case "Expires in 1 Month":
-      return "red";
+      return "orange";
     case "Expired":
       return "red";
     case "Unavailable":
@@ -180,8 +180,16 @@ const Allitem = () => {
       <Header />
       <div className="container mx-auto p-6">
         <ToastContainer />
-        <Typography variant="h4" component="h1" gutterBottom>
-          Materials List
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          align="center"
+          style={{ fontWeight: "bold" }}
+        >
+          Data-warehouse
+          <br />
+          A single source of truth!
         </Typography>
         <div className="mb-4 ">
           <Checkbox.Group
@@ -190,8 +198,13 @@ const Allitem = () => {
           >
             <Row>
               {uniqueDepartments.map((department) => (
-                <Col key={department} span={8} className="p-4">
-                  <Checkbox value={department}>{department}</Checkbox>
+                <Col key={department} span={8}>
+                  <Checkbox
+                    value={department}
+                    style={{ fontSize: '16px', marginRight: '10px' }}
+                  >
+                    {department}
+                  </Checkbox>
                 </Col>
               ))}
             </Row>
@@ -282,11 +295,7 @@ const Allitem = () => {
               <Input.TextArea />
             </Form.Item>
             <Form.Item>
-              <Button
-                type="primary"
-                htmlType="submit"
-                disabled={isSubmitDisabled}
-              >
+              <Button type="primary" htmlType="submit" disabled={isSubmitDisabled}>
                 Submit Request
               </Button>
             </Form.Item>

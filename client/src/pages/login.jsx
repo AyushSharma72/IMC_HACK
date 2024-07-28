@@ -186,18 +186,21 @@ const Login = () => {
               </div>
               <div className="mb-4 relative">
                 <label className="block text-gray-700">Password</label>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  value={Password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter password"
-                  className="w-full px-4 py-2 border rounded mt-1"
-                />
-                <div
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
-                  onClick={togglePasswordVisibility}
-                >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center cursor-pointer">
+                    {showPassword ? (
+                      <FaEyeSlash onClick={togglePasswordVisibility} />
+                    ) : (
+                      <FaEye onClick={togglePasswordVisibility} />
+                    )}
+                  </div>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={Password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter password"
+                    className="w-full pl-10 pr-4 py-2 border rounded mt-1"
+                  />
                 </div>
               </div>
               <button
@@ -232,18 +235,21 @@ const Login = () => {
               </div>
               <div className="mb-4 relative">
                 <label className="block text-gray-700">Password</label>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  value={Password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter password"
-                  className="w-full px-4 py-2 border rounded mt-1"
-                />
-                <div
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
-                  onClick={togglePasswordVisibility}
-                >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center cursor-pointer">
+                    {showPassword ? (
+                      <FaEyeSlash onClick={togglePasswordVisibility} />
+                    ) : (
+                      <FaEye onClick={togglePasswordVisibility} />
+                    )}
+                  </div>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={Password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter password"
+                    className="w-full pl-10 pr-4 py-2 border rounded mt-1"
+                  />
                 </div>
               </div>
               <button
