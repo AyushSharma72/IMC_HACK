@@ -97,9 +97,9 @@ async function ChangeStatus(req, resp) {
       { _id: id },
       {
         $set: {
-          status: state,
+          status: state, 
         },
-      }
+      } 
     );
 
     if (statusUpdate.matchedCount === 0) {
