@@ -22,7 +22,7 @@ const Login = () => {
     async function fetchDepartments() {
       try {
         const response = await fetch(
-          "http://localhost:8000/api/v1/auth/getalldepartments"
+          "https://imc-hack.onrender.com/api/v1/auth/getalldepartments"
         );
         const data = await response.json();
         if (response.ok) {
@@ -48,7 +48,7 @@ const Login = () => {
 
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8000/api/v1/auth/login", {
+      const response = await fetch("https://imc-hack.onrender.com/api/v1/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +99,7 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        "http://localhost:8000/api/v1/supplier/SupplierLogin",
+        "https://imc-hack.onrender.com/api/v1/supplier/SupplierLogin",
         {
           method: "POST",
           headers: {

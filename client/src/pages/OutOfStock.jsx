@@ -43,7 +43,7 @@ const OutOfStock = () => {
     async function fetchOutOfStockMaterials() {
       try {
         const response = await fetch(
-          "http://localhost:8000/api/v1/materials/GetMaterials"
+          "https://imc-hack.onrender.com/api/v1/materials/GetMaterials"
         );
         const data = await response.json();
         if (data.success === "true") {

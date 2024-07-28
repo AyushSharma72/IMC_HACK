@@ -34,7 +34,7 @@ const Homepage = () => {
         ["Week4", 70000, 35000],
         ["Week5", 58000, 45000],
         ["Week6", 78000, 22000],
-        ["Week7 ", 60000, 44000],
+        ["Week7", 60000, 44000],
       ]);
 
       var options = {
@@ -127,20 +127,20 @@ const Homepage = () => {
           </div>
         </section>
         <div className="flex justify-around mt-10">
-          <section className="w-[50%]">
+          <section className="w-[50%] p-4 bg-white shadow-md rounded-lg">
             <div className="container mx-auto px-4 text-center">
-              <h2 className="text-2xl font-bold text-blue-900  mt-3">
+              <h2 className="text-2xl font-bold text-blue-900 mt-3">
                 Weekly Transactions and Expenses
               </h2>
               <div
                 id="curve_chart"
                 className="mx-auto"
-                style={{ height: "500px" }}
+                style={{ height: "250px" }}
               ></div>
             </div>
           </section>
 
-          <section className="w-[50%]">
+          <section className="w-[50%] p-4 bg-white shadow-md rounded-lg">
             <div className="container mx-auto px-4 text-center">
               <h2 className="text-2xl font-bold text-blue-900 mt-4">
                 Department Wise Monthly Transactions
@@ -148,7 +148,7 @@ const Homepage = () => {
               <div
                 id="barchart_values"
                 className="mx-auto"
-                style={{ height: "500px" }}
+                style={{ height: "250px" }}
               ></div>
             </div>
           </section>

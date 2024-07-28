@@ -69,7 +69,7 @@ const Allitem = () => {
     async function fetchMaterials() {
       try {
         const response = await fetch(
-          "http://localhost:8000/api/v1/materials/GetMaterials"
+          "https://imc-hack.onrender.com/api/v1/materials/GetMaterials"
         );
         const data = await response.json();
         if (data.success === "true") {
@@ -131,7 +131,7 @@ const Allitem = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/api/v1/request/Addnewrequest/${requestData.materialId}/${requestData.fromDepartmentId}/${requestData.toDepartmentId}`,
+        `https://imc-hack.onrender.com/api/v1/request/Addnewrequest/${requestData.materialId}/${requestData.fromDepartmentId}/${requestData.toDepartmentId}`,
         {
           method: "POST",
           headers: {

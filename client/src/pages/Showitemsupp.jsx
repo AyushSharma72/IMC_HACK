@@ -30,7 +30,7 @@ const CreateItem = () => {
     try {
       if (auth?.supplier?._id) {
         console.log("Fetching materials for supplier ID:", auth.supplier._id); // Debug log
-        const response = await fetch(`http://localhost:8000/api/v1/supplier/suppshowitems/${auth.supplier._id}`);
+        const response = await fetch(`https://imc-hack.onrender.com/api/v1/supplier/suppshowitems/${auth.supplier._id}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

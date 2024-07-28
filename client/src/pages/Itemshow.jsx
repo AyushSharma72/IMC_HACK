@@ -15,6 +15,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 import { useNavigate } from "react-router-dom";
 
 const calculateStatus = (expiryDate, quantity) => {
@@ -70,7 +71,7 @@ const Itemshow = () => {
     async function fetchMaterials() {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/v1/materials/GetMaterials/${auth?.Department?._id}`
+          `https://imc-hack.onrender.com/api/v1/materials/GetMaterials/${auth?.Department?._id}`
         );
         const data = await response.json();
         if (data.success === "true") {
@@ -185,6 +186,7 @@ const Itemshow = () => {
           </Table>
         </TableContainer>
       </div>
+      <Footer/>
     </>
   );
 };

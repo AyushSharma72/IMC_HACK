@@ -34,7 +34,7 @@ const RequestPage = () => {
       }
       try {
         const response = await fetch(
-          `http://localhost:8000/api/v1/request/ListAllRequests/${auth.Department._id}`
+          `https://imc-hack.onrender.com/api/v1/request/ListAllRequests/${auth.Department._id}`
         );
         const data = await response.json();
         if (data.success) {
@@ -71,7 +71,7 @@ const RequestPage = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/api/v1/request/ChangeStatus/${requestId}`,
+        `https://imc-hack.onrender.com/api/v1/request/ChangeStatus/${requestId}`,
         {
           method: "PUT",
           headers: {

@@ -32,7 +32,7 @@ const CreateItem = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/api/v1/materials/addmaterials/${supauth?.supplier?._id}`,
+        `https://imc-hack.onrender.com/api/v1/materials/addmaterials/${supauth?.supplier?._id}`,
         {
           method: "POST",
           headers: {

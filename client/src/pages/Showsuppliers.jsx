@@ -9,7 +9,7 @@ const ShowSuppliers = () => {
   useEffect(() => {
     async function fetchSuppliers() {
       try {
-        const response = await fetch("http://localhost:8000/api/v1/supplier/listSupplier");
+        const response = await fetch("https://imc-hack.onrender.com/api/v1/supplier/listSupplier");
         const data = await response.json();
         if (response.ok) {
           setSuppliers(data);

@@ -38,7 +38,7 @@ const FileUpload = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/v1/materials/upload",
+        "https://imc-hack.onrender.com/api/v1/materials/upload",
         {
           method: "POST",
           body: formData,

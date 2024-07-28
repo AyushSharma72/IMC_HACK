@@ -24,7 +24,7 @@ const OutgoingRequests = () => {
     async function fetchRequests() {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/v1/request/ListMyRequests/${auth?.Department?._id}`
+          `https://imc-hack.onrender.com/api/v1/request/ListMyRequests/${auth?.Department?._id}`
         );
         const data = await response.json();
         if (data.success) {
