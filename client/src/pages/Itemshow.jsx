@@ -58,6 +58,7 @@ const Itemshow = () => {
   const [materials, setMaterials] = useState([]);
   const [loading, setLoading] = useState(true);
   const [departmentName, setDepartmentName] = useState("");
+  const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -74,7 +75,7 @@ const Itemshow = () => {
         const data = await response.json();
         if (data.success === "true") {
           setMaterials(data.materials);
-          console.log(data.materials);
+          calculateTotalPrice(data.materials);
         } else {
           toast.error("Failed to fetch materials");
         }
@@ -87,6 +88,13 @@ const Itemshow = () => {
 
     fetchMaterials();
   }, []);
+
+  const calculateTotalPrice = (materials) => {
+    const total = materials.reduce((acc, material) => {
+      return acc + material.quantity * material.UnitPrice;
+    }, 0);
+    setTotalPrice(total);
+  };
 
   if (loading) {
     return (
@@ -168,6 +176,11 @@ const Itemshow = () => {
                   </TableRow>
                 );
               })}
+              <TableRow>
+                <TableCell colSpan={2} />
+                <TableCell>Total Price</TableCell>
+                <TableCell colSpan={2}>{totalPrice.toFixed(2)}</TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </TableContainer>

@@ -13,11 +13,7 @@ const Homepage = () => {
       <main className="flex-grow">
         <section className="bg-gray-100 py-20">
           <div className="container mx-auto px-4 text-center">
-            <img
-              src={imclogo}
-              className="mx-auto mb-8 w-40 h-40 rounded-full"
-              alt="IMC Logo"
-            />
+          <img src={imclogo} className="mx-auto mb-8 w-40 h-40 rounded-full" alt="IMC Logo" />
             <h1 className="text-4xl font-bold text-blue-900 mb-2">
               Welcome to Indore Municipal Corporation
             </h1>

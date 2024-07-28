@@ -44,7 +44,7 @@ const getStatusColor = (status) => {
     case "Available":
       return "green";
     case "Expires in 1 Month":
-      return "red";
+      return "orange";
     case "Expired":
       return "red";
     case "Unavailable":
@@ -116,14 +116,14 @@ const Allitem = () => {
   };
 
   const handleOk = async (values) => {
-    if(values.quantity<=0) {
-      toast.error("enter quantity greater than 0")
-      return 
-    }  
+    if (values.quantity <= 0) {
+      toast.error("Enter quantity greater than 0");
+      return;
+    }
     const requestData = {
       materialId: selectedMaterial._id,
       materialName: selectedMaterial.MaterialName,
-      fromDepartmentId: auth.Department._id, 
+      fromDepartmentId: auth.Department._id,
       toDepartmentId: selectedMaterial.Department._id, // The department the material is being requested from
       quantity: values.quantity,
       description: values.description,
@@ -164,7 +164,7 @@ const Allitem = () => {
     setIsModalVisible(false);
   };
 
-  const isSubmitDisabled = quantity > (selectedMaterial  ? selectedMaterial.quantity : 0);
+  const isSubmitDisabled = quantity > (selectedMaterial ? selectedMaterial.quantity : 0);
 
   if (loading) {
     return (
@@ -179,15 +179,28 @@ const Allitem = () => {
       <Header />
       <div className="container mx-auto p-6">
         <ToastContainer />
-        <Typography variant="h4" component="h1" gutterBottom>
-          Materials List
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          align="center"
+          style={{ fontWeight: "bold" }}
+        >
+          Data-warehouse
+          <br />
+          A single source of truth!
         </Typography>
         <div className="mb-4">
           <Checkbox.Group onChange={handleDepartmentChange}>
-            <Row>
+            <Row gutter={[16, 16]}>
               {uniqueDepartments.map((department) => (
-                <Col key={department} span={8} className="p-4">
-                  <Checkbox value={department}>{department}</Checkbox>
+                <Col key={department} span={8}>
+                  <Checkbox
+                    value={department}
+                    style={{ fontSize: '16px', marginRight: '10px' }}
+                  >
+                    {department}
+                  </Checkbox>
                 </Col>
               ))}
             </Row>
@@ -249,25 +262,21 @@ const Allitem = () => {
       >
         {selectedMaterial && (
           <Form form={form} layout="vertical" onFinish={handleOk}>
-            <Form.Item
-              label="Material Name"
-              name="materialName"
-            >
-              <Input value={form.getFieldValue('materialName')} disabled />
+            <Form.Item label="Material Name" name="materialName">
+              <Input value={form.getFieldValue("materialName")} disabled />
             </Form.Item>
             <Form.Item
               label="Quantity"
               name="quantity"
               rules={[{ required: true, message: "Please input the quantity!" }]}
-           
             >
-              <Input 
-                type="number" 
+              <Input
+                type="number"
                 value={quantity}
                 onChange={(e) => {
                   handleQuantityChange(e);
                   form.setFieldsValue({ quantity: e.target.value });
-                }} 
+                }}
               />
             </Form.Item>
             <Form.Item
@@ -278,11 +287,7 @@ const Allitem = () => {
               <Input.TextArea />
             </Form.Item>
             <Form.Item>
-              <Button
-                type="primary"
-                htmlType="submit"
-                disabled={isSubmitDisabled}
-              >
+              <Button type="primary" htmlType="submit" disabled={isSubmitDisabled}>
                 Submit Request
               </Button>
             </Form.Item>
