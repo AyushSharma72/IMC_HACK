@@ -26,7 +26,7 @@ function App() {
           <Route path="/outofstock" element={<OutOfStock />} />
           <Route path="/allitems" element={<Allitem />} />
           <Route path="/request" element={<Requestpage />} />
-          <Route path="/createitem" element={<Createitem />} />
+          <Route path="/createitems" element={<Createitem />} />
           <Route path="/showsuppliers" element={<ShowSuppliers />} />
           <Route path="/showitems" element={<Showitemsupp />} />
           <Route

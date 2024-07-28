@@ -81,7 +81,7 @@ const RequestPage = () => {
         }
       );
       const data = await response.json();
-      if (data.success) {
+      if (response.status == 200) {
         toast.success("Status updated");
         setRequests((prevRequests) =>
           prevRequests.map((req) =>

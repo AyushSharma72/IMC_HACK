@@ -116,14 +116,14 @@ const Allitem = () => {
   };
 
   const handleOk = async (values) => {
-    if(values.quantity<=0) {
-      toast.error("enter quantity greater than 0")
-      return 
-    }  
+    if (values.quantity <= 0) {
+      toast.error("enter quantity greater than 0");
+      return;
+    }
     const requestData = {
       materialId: selectedMaterial._id,
       materialName: selectedMaterial.MaterialName,
-      fromDepartmentId: auth.Department._id, 
+      fromDepartmentId: auth.Department._id,
       toDepartmentId: selectedMaterial.Department._id, // The department the material is being requested from
       quantity: values.quantity,
       description: values.description,
@@ -164,7 +164,8 @@ const Allitem = () => {
     setIsModalVisible(false);
   };
 
-  const isSubmitDisabled = quantity > (selectedMaterial  ? selectedMaterial.quantity : 0);
+  const isSubmitDisabled =
+    quantity > (selectedMaterial ? selectedMaterial.quantity : 0);
 
   if (loading) {
     return (
@@ -182,8 +183,11 @@ const Allitem = () => {
         <Typography variant="h4" component="h1" gutterBottom>
           Materials List
         </Typography>
-        <div className="mb-4">
-          <Checkbox.Group onChange={handleDepartmentChange}>
+        <div className="mb-4 ">
+          <Checkbox.Group
+            onChange={handleDepartmentChange}
+            className="d-flex gap-4"
+          >
             <Row>
               {uniqueDepartments.map((department) => (
                 <Col key={department} span={8} className="p-4">
@@ -249,31 +253,31 @@ const Allitem = () => {
       >
         {selectedMaterial && (
           <Form form={form} layout="vertical" onFinish={handleOk}>
-            <Form.Item
-              label="Material Name"
-              name="materialName"
-            >
-              <Input value={form.getFieldValue('materialName')} disabled />
+            <Form.Item label="Material Name" name="materialName">
+              <Input value={form.getFieldValue("materialName")} disabled />
             </Form.Item>
             <Form.Item
               label="Quantity"
               name="quantity"
-              rules={[{ required: true, message: "Please input the quantity!" }]}
-           
+              rules={[
+                { required: true, message: "Please input the quantity!" },
+              ]}
             >
-              <Input 
-                type="number" 
+              <Input
+                type="number"
                 value={quantity}
                 onChange={(e) => {
                   handleQuantityChange(e);
                   form.setFieldsValue({ quantity: e.target.value });
-                }} 
+                }}
               />
             </Form.Item>
             <Form.Item
               label="Description"
               name="description"
-              rules={[{ required: true, message: "Please input the description!" }]}
+              rules={[
+                { required: true, message: "Please input the description!" },
+              ]}
             >
               <Input.TextArea />
             </Form.Item>
