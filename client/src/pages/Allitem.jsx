@@ -272,12 +272,14 @@ const Allitem = () => {
             <Form.Item
               label="Quantity"
               name="quantity"
+              className="w-full"
               rules={[
                 { required: true, message: "Please input the quantity!" },
               ]}
             >
               <Input
                 type="number"
+                className="w-full"
                 value={quantity}
                 onChange={(e) => {
                   handleQuantityChange(e);
